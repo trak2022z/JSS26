@@ -6,6 +6,10 @@
 'use strict';
 (function() {
 
+  let stopwatchTime = 0;
+  let timerId = null;
+
+  
   // introduce any module global variables necessary here
 
   window.addEventListener('load', init);
@@ -18,18 +22,26 @@
     id('reset').addEventListener('click', resetStopwatch);
   }
 
-  /**
+    /**
    * toggles the stop watch time
    */
   function toggleStopwatch() {
-    // TODO: complete this function
+    if (timerId === null) {
+      timerId = setInterval(() => {
+        stopwatchTime++;
+        console.log(stopwatchTime + ' seconds');
+      }, 1000);
+    } else {
+      clearInterval(timerId);
+      timerId = null;
+    }
   }
 
   /**
    * resets the stop watch
    */
   function resetStopwatch() {
-    // TODO: complete this function (hint: it's a super short one)
+    stopwatchTime = 0;
   }
 
   /* -------------------- Helper Function -------------------- */
