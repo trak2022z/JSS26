@@ -1,5 +1,4 @@
 /**
- * CSE 154
  * stopwatch timer solution
  */
 
